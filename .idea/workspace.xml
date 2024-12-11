@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Gestor de Entidades:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4d86414a-84cb-45f7-8e43-a9a58bde44b4" name="Changes" comment="Gestor version 07.11.24">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestor2GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestor2GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test.dat" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;PabloDiaZzz&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:/PabloDiaZzz/Gestor.git&quot;,
+    &quot;accountId&quot;: &quot;dd708f86-2f92-4db8-ac38-a7e1b301e4b1&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2oaud8YKkoPcsclBIUWdyt1ISaH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Driver.executor": "Run",
+    "Application.Gestor2.executor": "Run",
+    "Application.Gestor2GUI.executor": "Run",
+    "Application.Gui00.executor": "Run",
+    "Application.Gui01.executor": "Run",
+    "Application.Gui03.executor": "Run",
+    "Application.Interfaz.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.OcultarCampos.executor": "Run",
+    "Application.TabbedPaneWithCloseButton.executor": "Run",
+    "Application.interfaz.executor": "Run",
+    "Application.pruebas.executor": "Run",
+    "Application.tabla.executor": "Run",
+    "Application.ventana.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.Gestor2GUITest.executor": "Run",
+    "JUnit.Gestor2GUITest.testIsSameListWithEmptyTable.executor": "Debug",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.codeium.enabled": "true",
+    "com.codeium.snoozedEndTime": "0",
+    "create.test.in.the.same.root": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/alu04d/OneDrive - Consejería de Educación/Clase/Programacion/Gestor de Entidades",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Pablo\OneDrive - Consejería de Educación\Clase\Programacion\Gestor de Entidades\src" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="tabla.getValueAt(0, fromIndex)" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Gestor2GUI">
+    <configuration name="Gestor2" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Gestor2" />
+      <module name="Gestor de Entidades" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Gestor2GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Gestor2GUI" />
+      <module name="Gestor de Entidades" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pruebas" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pruebas" />
+      <module name="Gestor de Entidades" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Gestor2GUI" />
+        <item itemvalue="Application.pruebas" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Pablo\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4d86414a-84cb-45f7-8e43-a9a58bde44b4" name="Changes" comment="Gestor version 07.11.24" />
+      <created>1731120093554</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731120093554</updated>
+      <workItem from="1731120095950" duration="5178000" />
+      <workItem from="1731181190328" duration="1997000" />
+      <workItem from="1731320570034" duration="10627000" />
+      <workItem from="1731379221026" duration="5217000" />
+      <workItem from="1731484302925" duration="5925000" />
+      <workItem from="1731498364513" duration="24000" />
+      <workItem from="1731498394232" duration="6107000" />
+      <workItem from="1731512245451" duration="137000" />
+      <workItem from="1731512604321" duration="2091000" />
+      <workItem from="1731519345514" duration="5659000" />
+      <workItem from="1731544159926" duration="225000" />
+      <workItem from="1731544573642" duration="58000" />
+      <workItem from="1731598666484" duration="3385000" />
+      <workItem from="1731602095496" duration="6790000" />
+      <workItem from="1731656880523" duration="1706000" />
+      <workItem from="1731658850580" duration="247000" />
+      <workItem from="1731659106878" duration="331000" />
+      <workItem from="1731670814758" duration="8290000" />
+      <workItem from="1731767875614" duration="131000" />
+      <workItem from="1731886019531" duration="9800000" />
+      <workItem from="1731927236616" duration="2429000" />
+      <workItem from="1731929945230" duration="785000" />
+      <workItem from="1731932604454" duration="3742000" />
+      <workItem from="1732013766292" duration="9234000" />
+      <workItem from="1732088411198" duration="36000" />
+      <workItem from="1732088454285" duration="6390000" />
+      <workItem from="1732102948623" duration="6339000" />
+      <workItem from="1732109358989" duration="45000" />
+      <workItem from="1732183895667" duration="2579000" />
+      <workItem from="1732194658470" duration="1115000" />
+      <workItem from="1732199743840" duration="2005000" />
+      <workItem from="1732211913551" duration="1434000" />
+      <workItem from="1732289758524" duration="5780000" />
+      <workItem from="1732295985050" duration="330000" />
+      <workItem from="1732496618227" duration="1227000" />
+      <workItem from="1732521587128" duration="8773000" />
+      <workItem from="1732532208860" duration="9159000" />
+      <workItem from="1732549975989" duration="24000" />
+      <workItem from="1732550026335" duration="602000" />
+      <workItem from="1732576612372" duration="75000" />
+      <workItem from="1732576702700" duration="19000" />
+      <workItem from="1732576735321" duration="2701000" />
+      <workItem from="1732579520062" duration="3038000" />
+      <workItem from="1732609997836" duration="9588000" />
+      <workItem from="1732625231906" duration="890000" />
+      <workItem from="1732630879091" duration="7636000" />
+      <workItem from="1732638593026" duration="3504000" />
+      <workItem from="1732720497154" duration="20580000" />
+      <workItem from="1732753896435" duration="221000" />
+      <workItem from="1732756201577" duration="729000" />
+      <workItem from="1732805700793" duration="7132000" />
+      <workItem from="1732892114114" duration="11731000" />
+      <workItem from="1732920827112" duration="8269000" />
+      <workItem from="1733089275649" duration="9053000" />
+      <workItem from="1733128535274" duration="3000" />
+      <workItem from="1733132279045" duration="165000" />
+      <workItem from="1733132763179" duration="9000" />
+      <workItem from="1733133911372" duration="734000" />
+      <workItem from="1733219465207" duration="7562000" />
+      <workItem from="1733228604056" duration="3829000" />
+      <workItem from="1733304599714" duration="220000" />
+      <workItem from="1733312568349" duration="729000" />
+      <workItem from="1733313466699" duration="4607000" />
+      <workItem from="1733385525437" duration="8101000" />
+      <workItem from="1733396072880" duration="74000" />
+      <workItem from="1733399896320" duration="5032000" />
+      <workItem from="1733829877747" duration="19000" />
+      <workItem from="1733830229795" duration="7168000" />
+      <workItem from="1733922595352" duration="921000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Gestor version 07.11.24" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gestor version 07.11.24" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.NoSuchElementException" package="java.util" />
+          <option name="timeStamp" value="8" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Dato.java</url>
+          <line>114</line>
+          <properties class="Dato">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Dato.java</url>
+          <line>206</line>
+          <properties class="Dato">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Gestor2GUI.java</url>
+          <line>377</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="listas" language="JAVA" />
+        <watch expression="((java.util.ArrayList)value.get(0)).get(0)" custom="java.util.ArrayList" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

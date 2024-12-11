@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Gestor de Entidades:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Gestor_de_Entidades_jar</output-path>
+    <root id="archive" name="Gestor de Entidades.jar">
+      <element id="module-output" name="Gestor de Entidades" />
+    </root>
+  </artifact>
+</component>
