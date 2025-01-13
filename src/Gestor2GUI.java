@@ -301,10 +301,8 @@ public class Gestor2GUI {
 			if (l.getFirst().stream().anyMatch(dato -> dato.getValor().equalsIgnoreCase(text))) {
 				System.out.println("El campo ya existe.");
 			} else if (text == null) {
-				System.out.println("Before clicking the button");
 				BotonRedondeado button = (BotonRedondeado) ((TabComponent)panel2.getTabComponentAt(panel2.getSelectedIndex())).getComponent(1);
 				if (button != null) {
-					System.out.println("Button is not null");
 					MouseListener[] listeners = button.getMouseListeners();
 					if (listeners.length > 0) {
 						MouseListener listener = listeners[0];
