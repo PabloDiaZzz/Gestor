@@ -234,6 +234,9 @@ public class Dato extends TableColumn implements Serializable {
 				if (this.getValor().matches("\\d+:\\d+")) {
 					String[] parts = this.getValor().split(":");
 					parts = Arrays.stream(parts).map(v -> v.length() == 1 ? "0" + v : v).toArray(String[]::new);
+					if (Integer.parseInt(parts[1]) > 60) {
+						parts[1] = "00";
+					}
 					this.setValor(String.join(":", parts));
 				}
 				break;

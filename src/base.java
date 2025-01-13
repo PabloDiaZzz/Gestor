@@ -28,7 +28,7 @@ public class base {
 			private boolean isResettingColumn = false;
 			@Override public void columnMoved(TableColumnModelEvent e) {
 				if (isResettingColumn) {
-					return; // Prevent further handling while resetting
+					return;
 				}
 
 				int campo = e.getFromIndex();
@@ -41,11 +41,11 @@ public class base {
 				value.set(1, moverArray((int[]) value.get(1), campo, campo2));
 				value.set(2, moverArray((int[]) value.get(2), campo, campo2));
 				if (campo == 0 || campo2 == 0) {
-					isResettingColumn = true; // Set the flag to avoid re-triggering
+					isResettingColumn = true;
 					SwingUtilities.invokeLater(() -> {
-						tabla[0].getColumnModel().moveColumn(campo2, campo); // Reset column position
+						tabla[0].getColumnModel().moveColumn(campo2, campo);
 						Gestor2GUI.refreshTable(Gestor2GUI.panel2.getSelectedIndex());
-						isResettingColumn = false; // Reset the flag after completion
+						isResettingColumn = false;
 					});
 					JOptionPane.showMessageDialog(frame, "The first column cannot be moved.");
 				} else if (tabla[0].getTableHeader().getColumnModel().getColumn(campo).getHeaderValue().equals(list.getFirst().get(campo2).getValor())) {
@@ -100,6 +100,7 @@ public class base {
 				}
 				if (!list.get(row+1).get(col).getValor().equals(tabla[0].getValueAt(row, col))) {
 					SwingUtilities.invokeLater(() -> tabla[0].setValueAt(list.get(row+1).get(col).getValor(), row, col));
+					Gestor2GUI.refreshTable(Gestor2GUI.panel2.getSelectedIndex(), true, Gestor2GUI.getColumnWidths(tabla[0]), false);
 				}
 			}
 		});
@@ -232,6 +233,7 @@ public class base {
 								if (list.get(x).get(campo).getId() != 0) {
 									list.get(x).get(campo).checkTipo(1, true);
 								}
+								Gestor2GUI.refreshTable(Gestor2GUI.panel2.getSelectedIndex(), true, Gestor2GUI.getColumnWidths(tabla[0]), false);
 							}
 						}
 						Gestor2GUI.refreshTable(Gestor2GUI.panel2.getSelectedIndex());

@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d86414a-84cb-45f7-8e43-a9a58bde44b4" name="Changes" comment="Gestor version 11.12.24 prueba">
+    <list default="true" id="4d86414a-84cb-45f7-8e43-a9a58bde44b4" name="Changes" comment="Gestor version 13.01.25">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default2.dat" beforeDir="false" afterPath="$PROJECT_DIR$/default2.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lista.dat" beforeDir="false" afterPath="$PROJECT_DIR$/lista.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gestor2GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestor2GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +231,8 @@
       <workItem from="1733923792186" duration="45000" />
       <workItem from="1734033167784" duration="2000" />
       <workItem from="1736757321713" duration="29000" />
-      <workItem from="1736757362088" duration="2403000" />
+      <workItem from="1736757362088" duration="3174000" />
+      <workItem from="1736763522286" duration="1243000" />
     </task>
     <task id="LOCAL-00001" summary="Gestor version 11.12.24 prueba">
       <option name="closed" value="true" />
@@ -242,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733923712062</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Gestor version 13.01.25">
+      <option name="closed" value="true" />
+      <created>1736760093803</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1736760093803</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +287,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Gestor version 07.11.24" />
     <MESSAGE value="Gestor version 11.12.24 prueba" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gestor version 11.12.24 prueba" />
+    <MESSAGE value="Gestor version 13.01.25" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gestor version 13.01.25" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -310,6 +319,11 @@
           <url>file://$PROJECT_DIR$/src/Gestor2GUI.java</url>
           <line>375</line>
           <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Dato.java</url>
+          <line>236</line>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
