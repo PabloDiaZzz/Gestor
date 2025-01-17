@@ -12,7 +12,6 @@
     <list default="true" id="4d86414a-84cb-45f7-8e43-a9a58bde44b4" name="Changes" comment="Gestor version 13.01.25">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Dato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +87,7 @@
     &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/alu04d/OneDrive - Consejería de Educación/Clase/Programacion/Gestor de Entidades&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Pablo/OneDrive - Consejería de Educación/Clase/Programacion/Biblioteca&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -232,7 +231,11 @@
       <workItem from="1734033167784" duration="2000" />
       <workItem from="1736757321713" duration="29000" />
       <workItem from="1736757362088" duration="3174000" />
-      <workItem from="1736763522286" duration="1243000" />
+      <workItem from="1736763522286" duration="2509000" />
+      <workItem from="1736766068372" duration="1310000" />
+      <workItem from="1736941769684" duration="137000" />
+      <workItem from="1736979915125" duration="636000" />
+      <workItem from="1737017834643" duration="45000" />
     </task>
     <task id="LOCAL-00001" summary="Gestor version 11.12.24 prueba">
       <option name="closed" value="true" />
@@ -250,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736760093803</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Gestor version 13.01.25">
+      <option name="closed" value="true" />
+      <created>1736764876093</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1736764876093</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +310,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Dato.java</url>
-          <line>114</line>
+          <line>163</line>
           <properties class="Dato">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -308,7 +319,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Dato.java</url>
-          <line>206</line>
+          <line>289</line>
           <properties class="Dato">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -319,11 +330,6 @@
           <url>file://$PROJECT_DIR$/src/Gestor2GUI.java</url>
           <line>375</line>
           <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Dato.java</url>
-          <line>236</line>
-          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

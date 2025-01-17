@@ -231,6 +231,9 @@ public class Dato extends TableColumn implements Serializable {
 				this.setValor(this.getValor().replaceAll(" ", ""));
 				break;
 			case "Hora":
+				if (this.getValor().matches("\\d+.\\d+")) {
+					this.setValor(this.getValor().replaceAll("\\.", ":"));
+				}
 				if (this.getValor().matches("\\d+:\\d+")) {
 					String[] parts = this.getValor().split(":");
 					parts = Arrays.stream(parts).map(v -> v.length() == 1 ? "0" + v : v).toArray(String[]::new);
