@@ -616,22 +616,33 @@ public class Gestor2 {
 								float sumaTotal = 0f;
 								for (int y = 1; y < staticL.size (); y++) {
 									try {
-										Integer.parseInt (staticL.get(y).getFirst().getValor());
+										Integer.parseInt (staticL.getFirst().get(campo).getValor());
 										sumaTotal += Float.parseFloat (staticL.get(y).get(campo).getValor());
 										contador++;
 									} catch (Exception ignored) {
+										if (staticL.getFirst().get(campo).getTipo().equals("Hora")) {
+											int[] hora = Arrays.stream(staticL.get(y).get(campo).getValor().split(":")).mapToInt(Integer::parseInt).toArray();
+											sumaTotal += hora[0] * 60 + hora[1];
+											contador++;
+										}
 									}
 								}
 								if (contador > 0) {
-									if (buscarId ("Media", staticL) == - 1) {
-										newEntity.add(new Dato("Media", -1, 0));
-										for (int x = 1; x < staticL.getFirst ().size (); x++) {
-											newEntity.add(new Dato("", -1, 0));
-										}
-										newEntity.get(campo).setValor(String.valueOf (sumaTotal / contador));
-										staticL.add (newEntity);
+									String valor;
+									if (staticL.getFirst().get(campo).getTipo().equals("Hora")) {
+										valor = String.format("%02d:%02d", (int)(sumaTotal/(contador*60)), (int)(sumaTotal/contador)%60);
 									} else {
-										staticL.get (buscarId ("Media", staticL)).get(campo).setValor(String.valueOf (sumaTotal / contador));
+										valor = String.valueOf (sumaTotal / contador);
+									}
+									if (buscarId ("Media", staticL) == - 1) {
+										newEntity.add(new Dato("Media", - 1, 0));
+										for (int x = 1; x < staticL.getFirst().size(); x++) {
+											newEntity.add(new Dato("", - 1, 0));
+										}
+										newEntity.get(campo).setValor(valor);
+										staticL.add(newEntity);
+									} else {
+										staticL.get (buscarId ("Media", staticL)).get(campo).setValor(valor);
 									}
 									showInfo (staticL);
 								} else {
@@ -760,7 +771,7 @@ public class Gestor2 {
 						case 1:
 							System.out.println("Selecione el campo: ");
 							for (int x = 1; x < tempL.getFirst().size(); x++) {
-								System.out.println((x) + ". " + tempL.getFirst().get(x));
+								System.out.println((x) + ". " + tempL.getFirst().get(x).getValor());
 							}
 							System.out.print(">> ");
 							campo = sc.nextInt();
