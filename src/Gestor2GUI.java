@@ -290,7 +290,7 @@ public class Gestor2GUI {
 			}
 			ArrayList<ArrayList<Dato>> l = new ArrayList<>();
 			l.add(new ArrayList<>());
-			value.set(0,l);
+			value.set(0, l);
 			listas.put(panel2.getTabCount(), value);
 			panel2.addTab("Nueva lista", new ScrollPane());
 			panel2.setTabComponentAt(panel2.getTabCount() - 1, pestaña);
@@ -301,7 +301,7 @@ public class Gestor2GUI {
 			if (l.getFirst().stream().anyMatch(dato -> dato.getValor().equalsIgnoreCase(text))) {
 				System.out.println("El campo ya existe.");
 			} else if (text == null) {
-				BotonRedondeado button = (BotonRedondeado) ((TabComponent)panel2.getTabComponentAt(panel2.getSelectedIndex())).getComponent(1);
+				BotonRedondeado button = (BotonRedondeado) ((TabComponent) panel2.getTabComponentAt(panel2.getSelectedIndex())).getComponent(1);
 				if (button != null) {
 					MouseListener[] listeners = button.getMouseListeners();
 					if (listeners.length > 0) {
@@ -319,8 +319,8 @@ public class Gestor2GUI {
 					l.get(i).add(new Dato(" ", i, tipo));
 				}
 				value.set(0, l);
-				value.set(1,getColumnWidths(tabla));
-				value.set(2,getColumnWidths(tabla));
+				value.set(1, getColumnWidths(tabla));
+				value.set(2, getColumnWidths(tabla));
 				listas.put(panel2.getSelectedIndex(), value);
 				refreshTable(panel2.getSelectedIndex(), true, getColumnWidths(tabla), false);
 				distAncho.setVisible(true);

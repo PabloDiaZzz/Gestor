@@ -2,24 +2,24 @@ import javax.swing.*;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 
 public class OcultarCampos extends JDialog {
 
-	private final JTable tabla;
-	protected static Map<JCheckBox, TableColumn> checkBoxColumnMap = new LinkedHashMap<>();
-	protected static List<TableColumn> columns = new ArrayList<>();
 	protected static final Set<TableColumn> columnasOcultas = new HashSet<>();
 	protected static final Set<TableColumn> columnasVisibles = new HashSet<>();
-	private JCheckBox checkBox_1;
+	protected static Map<JCheckBox, TableColumn> checkBoxColumnMap = new LinkedHashMap<>();
+	protected static List<TableColumn> columns = new ArrayList<>();
 	protected static JPanel listaCheckBoxPanel = new JPanel();
+	private final JTable tabla;
+	private JCheckBox checkBox_1;
 
 	public OcultarCampos(JTable t, HashMap<TableColumn, Integer> columnWidthsMap, JFrame parent) {
 		super(parent, "Ocultar Campos - " + Gestor2GUI.panel2.getTitleAt(Gestor2GUI.panel2.getSelectedIndex()), false);
 		columns.clear();
 		this.tabla = t;
-		Gestor2GUI.setColumnWidths(tabla, (int[])Gestor2GUI.listas.get(Gestor2GUI.panel2.getSelectedIndex()).get(1));
+		Gestor2GUI.setColumnWidths(tabla, (int[]) Gestor2GUI.listas.get(Gestor2GUI.panel2.getSelectedIndex()).get(1));
 
 		TableColumnModel columnModel = tabla.getColumnModel();
 		ArrayList<ArrayList<Dato>> l = (ArrayList<ArrayList<Dato>>) Gestor2GUI.listas.get(Gestor2GUI.panel2.getSelectedIndex()).getFirst();
@@ -38,20 +38,19 @@ public class OcultarCampos extends JDialog {
 		listaCheckBoxPanel.setMaximumSize(new Dimension(300, Short.MAX_VALUE));
 
 		checkBoxColumnMap = new LinkedHashMap<>();
-		columns.stream().skip(1)
-				.forEach(column -> {
-					checkBox_1 = new JCheckBox(column.getHeaderValue().toString());
-					checkBox_1.setSelected(column.getWidth() > 0);
-					checkBoxColumnMap.put(checkBox_1, column);
-					listaCheckBoxPanel.add(checkBox_1);
-					if (checkBox_1.isSelected()) {
-						columnasVisibles.add(column);
-						columnasOcultas.remove(column);
-					} else {
-						columnasOcultas.add(column);
-						columnasVisibles.remove(column);
-					}
-				});
+		columns.stream().skip(1).forEach(column -> {
+			checkBox_1 = new JCheckBox(column.getHeaderValue().toString());
+			checkBox_1.setSelected(column.getWidth() > 0);
+			checkBoxColumnMap.put(checkBox_1, column);
+			listaCheckBoxPanel.add(checkBox_1);
+			if (checkBox_1.isSelected()) {
+				columnasVisibles.add(column);
+				columnasOcultas.remove(column);
+			} else {
+				columnasOcultas.add(column);
+				columnasVisibles.remove(column);
+			}
+		});
 
 		JScrollPane scrollLista = new JScrollPane(listaCheckBoxPanel);
 		scrollLista.setPreferredSize(new Dimension(120, 27));
@@ -114,7 +113,7 @@ public class OcultarCampos extends JDialog {
 		invS.setPreferredSize(new Dimension(150, 23));
 		invS.addActionListener(e -> {
 			Arrays.stream(listaCheckBoxPanel.getComponents()).forEach(component -> {
-				((JCheckBox) component).setSelected(!((JCheckBox) component).isSelected());
+				((JCheckBox) component).setSelected(! ((JCheckBox) component).isSelected());
 				if (((JCheckBox) component).isSelected()) {
 					columnasVisibles.add(columns.get(Arrays.asList(listaCheckBoxPanel.getComponents()).indexOf(component)));
 					columnasOcultas.remove(columns.get(Arrays.asList(listaCheckBoxPanel.getComponents()).indexOf(component)));
@@ -166,7 +165,7 @@ public class OcultarCampos extends JDialog {
 			TableColumn column = entry.getValue();
 			JCheckBox checkBox = entry.getKey();
 
-			if (!checkBox.isSelected()) {
+			if (! checkBox.isSelected()) {
 				columnasVisibles.remove(column);
 				columnasOcultas.add(column);
 
@@ -185,7 +184,7 @@ public class OcultarCampos extends JDialog {
 		}
 		Gestor2GUI.value.set(1, Gestor2GUI.getColumnWidths(tabla));
 		Gestor2GUI.listas.put(Gestor2GUI.panel2.getSelectedIndex(), Gestor2GUI.value);
-		Gestor2GUI.refreshTable(Gestor2GUI.panel2.getSelectedIndex(), true, (int[])Gestor2GUI.value.get(1));
+		Gestor2GUI.refreshTable(Gestor2GUI.panel2.getSelectedIndex(), true, (int[]) Gestor2GUI.value.get(1));
 		Gestor2GUI.panel2.setComponentAt(Gestor2GUI.panel2.getSelectedIndex(), new JScrollPane(tabla));
 	}
 }

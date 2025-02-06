@@ -9,12 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d86414a-84cb-45f7-8e43-a9a58bde44b4" name="Changes" comment="Gestor version 17.01.25">
+    <list default="true" id="4d86414a-84cb-45f7-8e43-a9a58bde44b4" name="Changes" comment="Gestor version 06.02.25">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lista.dat" beforeDir="false" afterPath="$PROJECT_DIR$/lista.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default.dat" beforeDir="false" afterPath="$PROJECT_DIR$/default.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default2.dat" beforeDir="false" afterPath="$PROJECT_DIR$/default2.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lista1.dat" beforeDir="false" afterPath="$PROJECT_DIR$/lista1.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gestor2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestor2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pruebas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pruebas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TabbedPaneWithCloseButton.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +63,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Driver.executor": "Run",
-    "Application.Gestor2.executor": "Debug",
+    "Application.Gestor2.executor": "Run",
     "Application.Gestor2GUI.executor": "Run",
     "Application.Gui00.executor": "Run",
     "Application.Gui01.executor": "Run",
@@ -79,6 +80,7 @@
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.Gestor2GUITest.executor": "Run",
     "JUnit.Gestor2GUITest.testIsSameListWithEmptyTable.executor": "Debug",
+    "JavaClassFindUsagesOptions.isMethodsUsages": "true",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -129,6 +131,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TabbedPaneWithCloseButton" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TabbedPaneWithCloseButton" />
+      <module name="Gestor de Entidades" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="pruebas" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pruebas" />
       <module name="Gestor de Entidades" />
@@ -138,6 +147,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TabbedPaneWithCloseButton" />
         <item itemvalue="Application.pruebas" />
         <item itemvalue="Application.Gestor2GUI" />
       </list>
@@ -248,7 +258,7 @@
       <workItem from="1738226006716" duration="20000" />
       <workItem from="1738226132872" duration="88000" />
       <workItem from="1738573034286" duration="229000" />
-      <workItem from="1738830147577" duration="2052000" />
+      <workItem from="1738830147577" duration="4949000" />
     </task>
     <task id="LOCAL-00001" summary="Gestor version 11.12.24 prueba">
       <option name="closed" value="true" />
@@ -282,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737110818020</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Gestor version 06.02.25">
+      <option name="closed" value="true" />
+      <created>1738832378627</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738832378627</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,7 +339,8 @@
     <MESSAGE value="Gestor version 11.12.24 prueba" />
     <MESSAGE value="Gestor version 13.01.25" />
     <MESSAGE value="Gestor version 17.01.25" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gestor version 17.01.25" />
+    <MESSAGE value="Gestor version 06.02.25" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gestor version 06.02.25" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -339,6 +358,15 @@
           </properties>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Gestor2.java</url>
+          <line>1236</line>
+          <properties class="Gestor2" method="defDir">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Gestor2GUI.java</url>
           <line>375</line>
@@ -346,8 +374,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Gestor2.java</url>
-          <line>629</line>
-          <option name="timeStamp" value="49" />
+          <line>551</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Gestor2.java</url>
+          <line>529</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Gestor2.java</url>
+          <line>532</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Gestor2.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

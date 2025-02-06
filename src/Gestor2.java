@@ -16,13 +16,15 @@ public class Gestor2 {
 	static ArrayList<Integer> camposDupe = new ArrayList<>(List.of(0));
 	static int sortBy = 0;
 	static boolean autoSave = false;
+
 	public static void main(String[] args) throws IOException {
 		String defaultDir = defDir(0);
 		ArrayList<ArrayList<Dato>> list;
 		Scanner sc = new Scanner(System.in);
 		list = cargarLista(defaultDir);
 		if (list == null) {
-			list = new ArrayList<>();
+			list = new ArrayList<ArrayList<Dato>>();
+			list.add(new ArrayList<Dato>(1));
 			System.out.print("Introduce un primer campo identificador (sus valores se asignarán automáticamente): ");
 			list.getFirst().add(new Dato(sc.nextLine(), "Clave"));
 		}
@@ -31,11 +33,9 @@ public class Gestor2 {
 				guardarLista(list, defDir(0), 0);
 			}
 			try {
-				list.getFirst()
-						.forEach(a -> a.setValor(a.getValor().toUpperCase()));
+				list.getFirst().forEach(a -> a.setValor(a.getValor().toUpperCase()));
 				ArrayList<ArrayList<Dato>> finalList = list;
-				IntStream.range(0, list.size())
-						.forEach(i -> finalList.get(i).getFirst().setId(i));
+				IntStream.range(0, list.size()).forEach(i -> finalList.get(i).getFirst().setId(i));
 				for (int campo : camposDupe) {
 					dupe(list, campo);
 				}
@@ -47,7 +47,7 @@ public class Gestor2 {
 						if (list.getFirst().get(x).getValor().matches(".*▽")) {
 							list.getFirst().get(x).setValor(list.getFirst().get(x).getValor().replace("▽", ""));
 							list.getFirst().get(sortBy).setValor(list.getFirst().get(x).getValor() + "▽");
-							ordenar(list, sortBy,1);
+							ordenar(list, sortBy, 1);
 						} else {
 							list.getFirst().get(sortBy).setValor(list.getFirst().get(sortBy).getValor() + "△");
 							ordenar(list, sortBy);
@@ -56,13 +56,13 @@ public class Gestor2 {
 						break;
 					}
 				}
-				if (!changed) {
+				if (! changed) {
 					list.getFirst().get(sortBy).setValor(list.getFirst().get(sortBy).getValor() + "△");
 					ordenar(list, sortBy);
 				}
 				for (int x = 1; x < list.size(); x++) {
 					for (int y = 1; y < list.get(x).size(); y++) {
-						if (!list.get(x).get(y).getTipo().equals("null")) {
+						if (! list.get(x).get(y).getTipo().equals("null")) {
 							list.get(x).get(y).formatTipo().checkTipo(1, true);
 						} else {
 							list.get(x).get(y).assignTipo(1, true);
@@ -94,13 +94,13 @@ public class Gestor2 {
 								System.out.println((j) + ". " + list.getFirst().get(j - 1).getValor() + ": " + list.get(indexEntidad).get(j - 1).getValor());
 							}
 							int campo = Utilidades.campo(list, false);
-							if (campo != -1) {
+							if (campo != - 1) {
 								System.out.println("Valor actual: " + list.get(indexEntidad).get(campo).getValor());
 								System.out.print("Introduce el nuevo valor: ");
 								String nuevoValor = sc.nextLine();
-							if (nuevoValor.isEmpty()) {
-								nuevoValor = " ";
-							}
+								if (nuevoValor.isEmpty()) {
+									nuevoValor = " ";
+								}
 								Dato antiguoDato = new Dato(list.get(indexEntidad).get(campo).getValor(), indexEntidad, list.getFirst().get(campo).getTipo());
 								if (campo == 0) {
 									try {
@@ -120,7 +120,7 @@ public class Gestor2 {
 									list.get(indexEntidad).get(campo).setOrdenCambio();
 									list.get(indexEntidad).get(campo).setValor(nuevoValor);
 									System.out.println();
-									if (!list.get(indexEntidad).get(campo).checkTipo(0, false)) {
+									if (! list.get(indexEntidad).get(campo).checkTipo(0, false)) {
 										System.out.println("El dato no es valido, se intentara revertir el cambio");
 										list.get(indexEntidad).set(campo, antiguoDato);
 										list.get(indexEntidad).get(campo).checkTipo(1, true);
@@ -148,7 +148,7 @@ public class Gestor2 {
 						}
 
 						int tipo = Utilidades.tipo();
-						if (tipo == -1) {
+						if (tipo == - 1) {
 							break;
 						}
 						list.getFirst().add(new Dato(text, 0, tipo)); // Añade el nuevo campo a la primera fila
@@ -160,7 +160,7 @@ public class Gestor2 {
 						break;
 					case 4:
 						int campo = Utilidades.campo(list, true);
-						if (campo != -1) {
+						if (campo != - 1) {
 							System.out.println("1. Cambiar nombre");
 							if (campo > 0) {
 								System.out.println("2. Cambiar tipo");
@@ -177,11 +177,11 @@ public class Gestor2 {
 									System.out.println("Campo cambiado.");
 									break;
 								case 2:
-									Utilidades.menu(false, new String[] {"Se borraran los datos que no concuerden con el nuevo tipo"});
+									Utilidades.menu(false, new String[]{"Se borraran los datos que no concuerden con el nuevo tipo"});
 									System.out.println("(-1 para cancelar)");
 									if (campo != 0) {
 										int newType = Utilidades.tipo();
-										if (newType != -1) {
+										if (newType != - 1) {
 											for (int x = 1; x < list.size(); x++) {
 												list.get(x).get(campo).setTipo(newType);
 												list.get(x).get(campo).formatTipo();
@@ -193,7 +193,7 @@ public class Gestor2 {
 											System.out.println();
 											break;
 										}
-									} else{
+									} else {
 										System.out.println("Seleccione un campo válido.");
 									}
 									break;
@@ -216,10 +216,10 @@ public class Gestor2 {
 						break;
 					case 5:
 						ArrayList<Dato> newEntity = new ArrayList<>(); // Creas una lista (fila)
-						newEntity.add(new Dato(String.valueOf(list.size()), -1, "Clave"));  // Asigna el ID automáticamente
+						newEntity.add(new Dato(String.valueOf(list.size()), - 1, "Clave"));  // Asigna el ID automáticamente
 
 						for (int i = 1; i < list.getFirst().size(); i++) {  // Añade un espacio para cada campo existente en la primera fila
-							newEntity.add(new Dato(" ", -1, list.getFirst().get(i).getTipo()));  // Añade un valor vacío para cada campo (espacio y no valor vacio para que se guarde al exportar)
+							newEntity.add(new Dato(" ", - 1, list.getFirst().get(i).getTipo()));  // Añade un valor vacío para cada campo (espacio y no valor vacio para que se guarde al exportar)
 						}
 						list.add(newEntity);  // Añade la nueva fila a la lista
 						System.out.println("Nueva entidad añadida.");
@@ -244,13 +244,13 @@ public class Gestor2 {
 						break;
 					case 8:
 						list = cargarLista(chooseDir());
-						int output = list != null ? 1 : -1;
+						int output = list != null ? 1 : - 1;
 						if (output == 1) {
 							System.out.println("\nDatos cargados correctamente.");
 							System.out.println("Comprobando tipos de datos...\n");
 							for (int x = 1; x < list.size(); x++) {
 								for (int y = 1; y < list.get(x).size(); y++) {
-									if (!list.get(x).get(y).getTipo().equals("null")) {
+									if (! list.get(x).get(y).getTipo().equals("null")) {
 										list.get(x).get(y).checkTipo(1, true);
 									} else {
 										list.get(x).get(y).assignTipo(1, true);
@@ -315,7 +315,7 @@ public class Gestor2 {
 				}
 			} catch (InputMismatchException e) {
 				if (sc.next().equals("autosave"))
-					if (!autoSave) {
+					if (! autoSave) {
 						autoSave = true;
 						System.out.println("AutoSave activado.");
 					} else {
@@ -384,10 +384,10 @@ public class Gestor2 {
 				}
 				String[] lS;
 				for (int y = 0; y < linea.length; y++) {
-					int gRange = ((maxValue.getLast().get(x) % 2 == 0) ? (maxValue.getLast().get(x)/2) - getLineaLong(linea[y], limit)[1]: ((maxValue.getLast().get(x)+1)/2) - getLineaLong(linea[y], limit)[1]);
+					int gRange = ((maxValue.getLast().get(x) % 2 == 0) ? (maxValue.getLast().get(x) / 2) - getLineaLong(linea[y], limit)[1] : ((maxValue.getLast().get(x) + 1) / 2) - getLineaLong(linea[y], limit)[1]);
 					if (maxValue.getLast().get(x) != 1) {
 						for (int g = 0; g < gRange; g++) {
-							while ( gRange > Collections.frequency(List.of(linea[y].split(" ")),"#*salto#*")) {
+							while (gRange > Collections.frequency(List.of(linea[y].split(" ")), "#*salto#*")) {
 								linea[y] = "#*salto#*" + " " + linea[y];
 							}
 						}
@@ -406,7 +406,8 @@ public class Gestor2 {
 					Integer.parseInt(infoList.get(x + 1).getFirst().getValor());
 				} catch (NumberFormatException e) {
 					isText = true;
-				} catch (IndexOutOfBoundsException ignored) {}
+				} catch (IndexOutOfBoundsException ignored) {
+				}
 				if (x == 0 || x == infoList.size() - 1 || isText) { // If para añadir barra separadora después de la fila de campos y al final
 					System.out.println();
 					if (x == 0 || isText) {
@@ -470,7 +471,7 @@ public class Gestor2 {
 			}
 
 			int lineaIndividual = (a != null && a.isBlank()) ? 0 : (a != null ? a.length() : 0);
-			for (int z = 0; z < ((maxValue.getFirst().get(y) - lineaIndividual) / 2 == 0 ? 1 : ((maxValue.getFirst().get(y) - lineaIndividual) / 2 ) + 1); z++) {
+			for (int z = 0; z < ((maxValue.getFirst().get(y) - lineaIndividual) / 2 == 0 ? 1 : ((maxValue.getFirst().get(y) - lineaIndividual) / 2) + 1); z++) {
 				System.out.print(" ");
 			}
 
@@ -485,11 +486,11 @@ public class Gestor2 {
 			System.out.print(linea[y] == null || linea[y].isBlank() ? "" : linea[y]);
 
 			if ((maxValue.getFirst().get(y) - lineaIndividual) % 2 == 0) { // If para el caso de que el número de espacios sea impar
-				for (int z = 0; z < ((maxValue.getFirst().get(y) - lineaIndividual) / 2 == 0 ? 1 : ((maxValue.getFirst().get(y) - lineaIndividual) / 2 ) + 1); z++) {
+				for (int z = 0; z < ((maxValue.getFirst().get(y) - lineaIndividual) / 2 == 0 ? 1 : ((maxValue.getFirst().get(y) - lineaIndividual) / 2) + 1); z++) {
 					System.out.print(" ");
 				}
 			} else {
-				for (int z = 0; z < ((maxValue.getFirst().get(y) - lineaIndividual) / 2 == 0 ? 1 : ((maxValue.getFirst().get(y) - lineaIndividual) / 2 ) + 1) + 1; z++) {
+				for (int z = 0; z < ((maxValue.getFirst().get(y) - lineaIndividual) / 2 == 0 ? 1 : ((maxValue.getFirst().get(y) - lineaIndividual) / 2) + 1) + 1; z++) {
 					System.out.print(" ");
 				}
 			}
@@ -526,6 +527,9 @@ public class Gestor2 {
 		try { // Seleccionar el archivo
 			try {
 				ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileDir));
+				if (fileDir.startsWith("C:\\Users\\")) {
+					fileDir = fileDir.replaceAll("C:\\\\Users\\\\[^\\\\]+", "%userprofile%");
+				}
 				oos.writeObject(list);
 				oos.close();
 				System.out.println("Lista serializada");
@@ -545,7 +549,7 @@ public class Gestor2 {
 		}
 		try {
 			try {
-				ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileDir));
+				ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileDir.replace("%userprofile%", System.getProperty("user.home") + "\\")));
 				ArrayList<ArrayList<Dato>> l = (ArrayList<ArrayList<Dato>>) ois.readObject();
 				ois.close();
 				System.out.println("Lista cargada");
@@ -594,7 +598,7 @@ public class Gestor2 {
 			}
 			ArrayList<ArrayList<Dato>> tempL = Utilidades.aaListCopy2(l);
 			System.out.println("Selecione una funcion:\n");
-			Utilidades.menu(true, new String[] {"Imprimir lista", "Calcular valor", "Establecer lista predeterminada", "Buscar entidad", "Ordenar lista","Orden de campos", "Mayusculas/Minusculas", "Tipo de datos de cada campo", "Salto de linea","Duplicados" , "Salir"});
+			Utilidades.menu(true, new String[]{"Imprimir lista", "Calcular valor", "Establecer lista predeterminada", "Buscar entidad", "Ordenar lista", "Orden de campos", "Mayusculas/Minusculas", "Tipo de datos de cada campo", "Salto de linea", "Duplicados", "Salir"});
 			int opt = sc.nextInt();
 			sc.nextLine();
 			System.out.println();
@@ -604,7 +608,7 @@ public class Gestor2 {
 					break;
 				case 2:
 					System.out.println();
-					Utilidades.menu(true, new String[] {"Media", "Maximo", "Minimo"});
+					Utilidades.menu(true, new String[]{"Media", "Maximo", "Minimo"});
 					opt = sc.nextInt();
 					sc.nextLine();
 					switch (opt) {
@@ -612,12 +616,12 @@ public class Gestor2 {
 							newEntity = new ArrayList<>();
 							int contador = 0;
 							campo = Utilidades.campo(staticL, true, 1);
-							if (campo != -1) {
+							if (campo != - 1) {
 								float sumaTotal = 0f;
-								for (int y = 1; y < staticL.size (); y++) {
+								for (int y = 1; y < staticL.size(); y++) {
 									try {
-										Integer.parseInt (staticL.getFirst().get(campo).getValor());
-										sumaTotal += Float.parseFloat (staticL.get(y).get(campo).getValor());
+										Integer.parseInt(staticL.getFirst().get(campo).getValor());
+										sumaTotal += Float.parseFloat(staticL.get(y).get(campo).getValor());
 										contador++;
 									} catch (Exception ignored) {
 										if (staticL.getFirst().get(campo).getTipo().equals("Hora")) {
@@ -630,11 +634,11 @@ public class Gestor2 {
 								if (contador > 0) {
 									String valor;
 									if (staticL.getFirst().get(campo).getTipo().equals("Hora")) {
-										valor = String.format("%02d:%02d", (int)(sumaTotal/(contador*60)), (int)(sumaTotal/contador)%60);
+										valor = String.format("%02d:%02d", (int) (sumaTotal / (contador * 60)), (int) (sumaTotal / contador) % 60);
 									} else {
-										valor = String.valueOf (sumaTotal / contador);
+										valor = String.valueOf(sumaTotal / contador);
 									}
-									if (buscarId ("Media", staticL) == - 1) {
+									if (buscarId("Media", staticL) == - 1) {
 										newEntity.add(new Dato("Media", - 1, 0));
 										for (int x = 1; x < staticL.getFirst().size(); x++) {
 											newEntity.add(new Dato("", - 1, 0));
@@ -642,53 +646,53 @@ public class Gestor2 {
 										newEntity.get(campo).setValor(valor);
 										staticL.add(newEntity);
 									} else {
-										staticL.get (buscarId ("Media", staticL)).get(campo).setValor(valor);
+										staticL.get(buscarId("Media", staticL)).get(campo).setValor(valor);
 									}
-									showInfo (staticL);
+									showInfo(staticL);
 								} else {
-									System.out.println ("\nNo se puede calcular la media");
+									System.out.println("\nNo se puede calcular la media");
 								}
 							}
 							break;
 						case 2:
 							newEntity = new ArrayList<>();
 							campo = Utilidades.campo(staticL, true, 1);
-							if (campo != -1) {
+							if (campo != - 1) {
 								temp = - 1;
-								for (int x = 1; x < staticL.getFirst ().size (); x++) {
+								for (int x = 1; x < staticL.getFirst().size(); x++) {
 									try {
-										Float.parseFloat (staticL.get (x).get(campo).getValor());
+										Float.parseFloat(staticL.get(x).get(campo).getValor());
 										temp = x;
 									} catch (NumberFormatException ignored) {
 									}
 								}
 								if (temp == - 1) {
-									System.out.println ("No se puede calcular el maximo");
+									System.out.println("No se puede calcular el maximo");
 									break;
 								}
 								float maxValue = 0f;
-								if (buscarId ("Maximo", staticL) == - 1) {
-									newEntity.add(new Dato("Maximo", -1, 0));
-									for (int x = 1; x < staticL.getFirst().size (); x++) {
-										newEntity.add(new Dato("", -1, 0));
+								if (buscarId("Maximo", staticL) == - 1) {
+									newEntity.add(new Dato("Maximo", - 1, 0));
+									for (int x = 1; x < staticL.getFirst().size(); x++) {
+										newEntity.add(new Dato("", - 1, 0));
 									}
 
-									for (int x = 0; x < staticL.size (); x++) {
+									for (int x = 0; x < staticL.size(); x++) {
 										try {
-											maxValue = Math.max (Float.parseFloat (staticL.get (x).get (campo).getValor()), maxValue);
+											maxValue = Math.max(Float.parseFloat(staticL.get(x).get(campo).getValor()), maxValue);
 										} catch (Exception ignored) {
 										}
 									}
 									newEntity.get(campo).setValor(String.valueOf(maxValue));
 									staticL.add(newEntity);
 								} else {
-									for (int x = 0; x < staticL.size (); x++) {
+									for (int x = 0; x < staticL.size(); x++) {
 										try {
-											maxValue = Math.max (Float.parseFloat (staticL.get (x).get (campo).getValor()), maxValue);
+											maxValue = Math.max(Float.parseFloat(staticL.get(x).get(campo).getValor()), maxValue);
 										} catch (Exception ignored) {
 										}
 									}
-									staticL.get (buscarId ("Maximo", staticL)).get(campo).setValor(String.valueOf(maxValue));
+									staticL.get(buscarId("Maximo", staticL)).get(campo).setValor(String.valueOf(maxValue));
 								}
 								showInfo(staticL);
 							} else {
@@ -698,43 +702,43 @@ public class Gestor2 {
 						case 3:
 							newEntity = new ArrayList<>();
 							campo = Utilidades.campo(staticL, true, 1);
-							if (campo != -1) {
+							if (campo != - 1) {
 								temp = - 1;
-								for (int x = 1; x < staticL.getFirst ().size (); x++) {
+								for (int x = 1; x < staticL.getFirst().size(); x++) {
 									try {
-										Float.parseFloat (staticL.get (x).get(campo).getValor());
+										Float.parseFloat(staticL.get(x).get(campo).getValor());
 										temp = x;
 									} catch (NumberFormatException ignored) {
 									}
 								}
 								if (temp == - 1) {
-									System.out.println ("No se puede calcular el minimo");
+									System.out.println("No se puede calcular el minimo");
 									break;
 								}
-								float minValue = Float.parseFloat (staticL.get (temp).get (campo).getValor());
-								if (buscarId ("Minimo", staticL) == - 1) {
-									newEntity.add (new Dato("Minimo", -1, 0));
-									for (int x = 1; x < staticL.getFirst ().size (); x++) {
-										newEntity.add (new Dato("", -1, 0));
+								float minValue = Float.parseFloat(staticL.get(temp).get(campo).getValor());
+								if (buscarId("Minimo", staticL) == - 1) {
+									newEntity.add(new Dato("Minimo", - 1, 0));
+									for (int x = 1; x < staticL.getFirst().size(); x++) {
+										newEntity.add(new Dato("", - 1, 0));
 									}
-									for (int x = 0; x < staticL.size (); x++) {
+									for (int x = 0; x < staticL.size(); x++) {
 										try {
-											minValue = Math.min (Float.parseFloat (staticL.get (x).get (campo).getValor()), minValue);
+											minValue = Math.min(Float.parseFloat(staticL.get(x).get(campo).getValor()), minValue);
 										} catch (Exception ignored) {
 										}
 									}
 									newEntity.get(campo).setValor(String.valueOf(minValue));
-									staticL.add (newEntity);
+									staticL.add(newEntity);
 								} else {
-									for (int x = 0; x < staticL.size (); x++) {
+									for (int x = 0; x < staticL.size(); x++) {
 										try {
-											minValue = Math.min (Float.parseFloat (staticL.get (x).get (campo).getValor()), minValue);
+											minValue = Math.min(Float.parseFloat(staticL.get(x).get(campo).getValor()), minValue);
 										} catch (Exception ignored) {
 										}
 									}
-									staticL.get (buscarId ("Minimo", staticL)).get(campo).setValor(String.valueOf(minValue));
+									staticL.get(buscarId("Minimo", staticL)).get(campo).setValor(String.valueOf(minValue));
 								}
-								showInfo (staticL);
+								showInfo(staticL);
 							} else {
 								System.out.println("Seleccione un campo existente.");
 							}
@@ -746,7 +750,7 @@ public class Gestor2 {
 					System.out.println();
 					break;
 				case 3:
-					Utilidades.menu(true, new String[] {"Establecer lista predeterminada", "Borrar lista predeterminada"});
+					Utilidades.menu(true, new String[]{"Establecer lista predeterminada", "Borrar lista predeterminada"});
 					opt = sc.nextInt();
 					sc.nextLine();
 					switch (opt) {
@@ -754,7 +758,7 @@ public class Gestor2 {
 							defDir(1);
 							break;
 						case 2:
-							defDir(-1);
+							defDir(- 1);
 							break;
 						default:
 							System.out.println("Opción no válida.");
@@ -764,7 +768,7 @@ public class Gestor2 {
 					break;
 				case 4:
 					System.out.println();
-					Utilidades.menu(true, new String[] {"Buscar por atributo", "Buscar por campo"});
+					Utilidades.menu(true, new String[]{"Buscar por atributo", "Buscar por campo"});
 					opt = sc.nextInt();
 					sc.nextLine();
 					switch (opt) {
@@ -784,7 +788,7 @@ public class Gestor2 {
 									System.out.println("No se ha encontrado la entidad.");
 								} else {
 									for (int x = tempL.size() - 1; x > 0; x--) {
-										if (!id.contains(x)) {
+										if (! id.contains(x)) {
 											tempL.remove(x);
 										}
 									}
@@ -796,16 +800,16 @@ public class Gestor2 {
 							break;
 						case 2:
 							campo = Utilidades.campo(tempL, true, 1);
-							if (campo != -1) {
-								String memoria = tempL.getFirst ().get (campo).getValor();
-								for (int y = tempL.getFirst ().size () - 1; y > 0; y--) {
-									if (! tempL.getFirst ().get (y).equals (tempL.getFirst ().get (buscarEntHor (0, memoria, tempL).getFirst ()))) {
-										for (int z = 0; z < tempL.size (); z++) { // Elimina toda la columna seleccionada
-											tempL.get (z).remove (y);
+							if (campo != - 1) {
+								String memoria = tempL.getFirst().get(campo).getValor();
+								for (int y = tempL.getFirst().size() - 1; y > 0; y--) {
+									if (! tempL.getFirst().get(y).equals(tempL.getFirst().get(buscarEntHor(0, memoria, tempL).getFirst()))) {
+										for (int z = 0; z < tempL.size(); z++) { // Elimina toda la columna seleccionada
+											tempL.get(z).remove(y);
 										}
 									}
 								}
-								showInfo (tempL);
+								showInfo(tempL);
 							} else {
 								System.out.println("Seleccione un campo existente.");
 							}
@@ -818,17 +822,17 @@ public class Gestor2 {
 					System.out.println();
 					campo = Utilidades.campo(l, true);
 					sortBy = campo;
-					if (campo != -1) {
+					if (campo != - 1) {
 						for (int x = 0; x < l.getFirst().size(); x++) {
 							if (x == campo && l.getFirst().get(x).getValor().matches(".*△")) {
 								l.getFirst().get(x).setValor(l.getFirst().get(x).getValor().replace("△", ""));
 								l.getFirst().get(campo).setValor(l.getFirst().get(campo).getValor() + "▽");
-								ordenar(l, campo,1);
+								ordenar(l, campo, 1);
 								changed = true;
 							} else if (x == campo) {
 								l.getFirst().get(x).setValor(l.getFirst().get(x).getValor().replace("▽", ""));
 								l.getFirst().get(campo).setValor(l.getFirst().get(campo).getValor() + "△");
-								ordenar(l, campo,0);
+								ordenar(l, campo, 0);
 								changed = true;
 							} else {
 								l.getFirst().get(x).setValor(l.getFirst().get(x).getValor().replace("△", ""));
@@ -837,9 +841,9 @@ public class Gestor2 {
 
 
 						}
-						if (!changed) {
+						if (! changed) {
 							l.getFirst().get(campo).setValor(l.getFirst().get(campo).getValor() + "△");
-							ordenar(l, campo,0);
+							ordenar(l, campo, 0);
 						}
 
 						showInfo(l);
@@ -851,7 +855,7 @@ public class Gestor2 {
 					int campo2;
 					System.out.println();
 					campo = Utilidades.campo(l, true, 1);
-					if (campo != -1) {
+					if (campo != - 1) {
 						System.out.println("Seleccione el campo por el que intercambiar");
 						System.out.print(">> ");
 						campo2 = sc.nextInt();
@@ -877,8 +881,8 @@ public class Gestor2 {
 					System.out.println();
 					Utilidades.menu(true, new String[]{"Seleccionar por entidad", "Seleccionar por campo", "Seleccionar toda la tabla"});
 					int mode = sc.nextInt();
-					campo = -1;
-					int entity = -1;
+					campo = - 1;
+					int entity = - 1;
 					sc.nextLine();
 					if (mode == 1) {
 						System.out.println();
@@ -893,7 +897,7 @@ public class Gestor2 {
 					} else if (mode == 2) {
 						System.out.println();
 						campo = Utilidades.campo(l, true, 1);
-						if (campo == -1) {
+						if (campo == - 1) {
 							break;
 						}
 					} else if (mode != 3) {
@@ -925,9 +929,9 @@ public class Gestor2 {
 					break;
 				case 8:
 					System.out.println();
-					String[] listaTipos = new String[l.getFirst().size()-1];
+					String[] listaTipos = new String[l.getFirst().size() - 1];
 					for (int x = 1; x < l.getFirst().size(); x++) {
-						listaTipos[x-1] = l.getFirst().get(x).getValor() + " - [" + l.getFirst().get(x).getTipo() + "]";
+						listaTipos[x - 1] = l.getFirst().get(x).getValor() + " - [" + l.getFirst().get(x).getTipo() + "]";
 					}
 					Utilidades.menu(false, listaTipos);
 					break;
@@ -950,7 +954,7 @@ public class Gestor2 {
 					for (Dato campoValor : l.getFirst()) {
 						campoValor.setValor(campoValor.getValor().replace(" - ON", ""));
 					}
-					if (campo == -1) {
+					if (campo == - 1) {
 						System.out.println("Seleccione un campo válido.");
 						break;
 					}
@@ -983,7 +987,7 @@ public class Gestor2 {
 			aSort = Arrays.stream(aSort).sorted(Dato.datoCompareInv).toArray(Dato[]::new);
 		}
 		for (int y = 0; y < a.length; y++) {
-			if (!aSort[y].getValor().equals(l.get(y + 1).get(campo).getValor())) {
+			if (! aSort[y].getValor().equals(l.get(y + 1).get(campo).getValor())) {
 				ArrayList<Dato> temp = l.remove(y + 1);
 				l.add(temp);
 				y = - 1;
@@ -996,7 +1000,7 @@ public class Gestor2 {
 	}
 
 	private static int buscarId(String n, ArrayList<ArrayList<Dato>> l) {
-		int id = -1;
+		int id = - 1;
 		for (int x = 0; x < l.size(); x++) {
 			try {
 				if (Integer.parseInt(l.get(x).getFirst().getValor()) == Integer.parseInt(n)) {
@@ -1054,7 +1058,7 @@ public class Gestor2 {
 		boolean repeat = true;
 		Dato[] lista = l.stream().skip(1).flatMap(row -> row.stream().filter(element -> row.indexOf(element) == campo)).sorted(Comparator.comparingInt(Dato::getOrdenCambio)).toArray(Dato[]::new);
 		do {
-			id = -1;
+			id = - 1;
 			if (repeat) {
 				repeat = false;
 
@@ -1134,44 +1138,8 @@ public class Gestor2 {
 								}
 								case "Null", "Texto" -> {
 
-									String[] valores = Arrays.stream(lista)
-											.map(Dato::getValor)
-											.filter(s -> Arrays.equals(
-													new StringBuilder(s)
-															.reverse()
-															.toString()
-															.chars()
-															.dropWhile(Character::isDigit)
-															.toArray(),
-													new StringBuilder(l.get(finalId).get(campo).getValor())
-															.reverse()
-															.toString()
-															.chars()
-															.dropWhile(Character::isDigit)
-															.toArray()))
-											.sorted()
-											.distinct()
-											.toArray(String[]::new);
-									int[] ids = Arrays.stream(valores)
-											.map(s -> Arrays.stream(
-													new StringBuilder(s)
-															.reverse()
-															.chars()
-															.takeWhile(Character::isDigit)
-															.toArray())
-													.mapToObj(Character::toString)
-													.collect(Collectors.joining()))
-											.map(h -> Arrays.stream(
-													new StringBuilder(h)
-															.reverse()
-															.chars()
-															.toArray())
-													.mapToObj(Character::toString)
-													.collect(Collectors.joining()))
-											.mapToInt(Integer::parseInt)
-											.distinct()
-											.sorted()
-											.toArray();
+									String[] valores = Arrays.stream(lista).map(Dato::getValor).filter(s -> Arrays.equals(new StringBuilder(s).reverse().toString().chars().dropWhile(Character::isDigit).toArray(), new StringBuilder(l.get(finalId).get(campo).getValor()).reverse().toString().chars().dropWhile(Character::isDigit).toArray())).sorted().distinct().toArray(String[]::new);
+									int[] ids = Arrays.stream(valores).map(s -> Arrays.stream(new StringBuilder(s).reverse().chars().takeWhile(Character::isDigit).toArray()).mapToObj(Character::toString).collect(Collectors.joining())).map(h -> Arrays.stream(new StringBuilder(h).reverse().chars().toArray()).mapToObj(Character::toString).collect(Collectors.joining())).mapToInt(Integer::parseInt).distinct().sorted().toArray();
 									int nuevoId = 1;
 									for (int n : ids) {
 										if (nuevoId == n) {
@@ -1179,26 +1147,12 @@ public class Gestor2 {
 										}
 
 									}
-									String nuevoValor = Arrays.stream(
-											new StringBuilder(lista[x].getValor())
-													.reverse()
-													.chars()
-													.dropWhile(Character::isDigit)
-													.toArray())
-											.mapToObj(Character::toString)
-											.collect(Collectors.joining());
-									nuevoValor = new StringBuilder(nuevoValor)
-											.reverse()
-											.toString();
+									String nuevoValor = Arrays.stream(new StringBuilder(lista[x].getValor()).reverse().chars().dropWhile(Character::isDigit).toArray()).mapToObj(Character::toString).collect(Collectors.joining());
+									nuevoValor = new StringBuilder(nuevoValor).reverse().toString();
 									lista[x].setValor(nuevoValor + nuevoId);
 								}
 								case "Entero", "Flotante" -> {
-									double[] valores = Arrays.stream(lista)
-											.map(Dato::getValor)
-											.mapToDouble(Float::parseFloat)
-											.distinct()
-											.sorted()
-											.toArray();
+									double[] valores = Arrays.stream(lista).map(Dato::getValor).mapToDouble(Float::parseFloat).distinct().sorted().toArray();
 									double nuevoId = valores[0];
 									for (double n : valores) {
 										if (nuevoId == n) {
@@ -1227,7 +1181,7 @@ public class Gestor2 {
 					}
 				}
 			}
-		} while (id != -1);
+		} while (id != - 1);
 	}
 
 	private static String defDir(int n) throws FileNotFoundException {
@@ -1235,6 +1189,9 @@ public class Gestor2 {
 		if (n == 1) {
 			try {
 				d = chooseDir();
+				if (d.startsWith("C:\\Users\\")) {
+					d = d.replaceAll("C:\\\\Users\\\\[^\\\\]+", "%userprofile%");
+				}
 				PrintStream ps = new PrintStream(new FileOutputStream("default2.dat"));
 				ps.println(d);
 				System.out.println("\nDatos guardados");
@@ -1249,7 +1206,7 @@ public class Gestor2 {
 				d = br.readLine();
 			} catch (NullPointerException | IOException ignored) {
 			}
-		} else if (n == -1) {
+		} else if (n == - 1) {
 			PrintStream ps = new PrintStream(new FileOutputStream("default2.dat"));
 			ps.println((String) null);
 		}

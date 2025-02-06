@@ -10,11 +10,104 @@ import java.util.stream.Collectors;
 import static java.lang.Integer.compare;
 
 public class Dato extends TableColumn implements Serializable {
+	static final String[] tipos = {"null", "Texto", "Entero", "Flotante", "Caracter", "Fecha", "Hora", "Bool", "Clave"};
+	static final Comparator<Dato> datoCompare = (o1, o2) -> {
+		try {
+			if (! o1.getTipo().equals(o2.getTipo())) {
+				return 1;
+			}
+			String tipo = o1.getTipo();
+			switch (tipo) {
+				case "Texto", "Bool", "Caracter", "null" -> {
+					String[] valores = new String[]{o1.getValor(), o2.getValor()};
+					Arrays.sort(valores);
+					if (! valores[0].equals(valores[1]) && valores[1].equals(o2.getValor())) {
+						return - 1;
+					}
+				}
+				case "Entero", "Flotante" -> {
+					String[] valores = new String[]{o1.getValor(), o2.getValor()};
+					return (int) (Float.parseFloat(valores[0]) - Float.parseFloat(valores[1]));
+				}
+				case "Hora" -> {
+					int[] hora1 = Arrays.stream(o1.getValor().split(":")).mapToInt(Integer::parseInt).toArray();
+					int[] hora2 = Arrays.stream(o2.getValor().split(":")).mapToInt(Integer::parseInt).toArray();
+					if (hora1[0] < hora2[0]) {
+						return - 1;
+					} else if (hora1[0] == hora2[0]) {
+						if (hora1[1] < hora2[1]) {
+							return - 1;
+						}
+					}
+				}
+				case "Fecha" -> {
+					int[] fecha1 = Arrays.stream(o1.getValor().split("/")).mapToInt(Integer::parseInt).toArray();
+					int[] fecha2 = Arrays.stream(o2.getValor().split("/")).mapToInt(Integer::parseInt).toArray();
+					if (fecha1[2] < fecha2[2]) {
+						return - 1;
+					} else if (fecha1[2] == fecha2[2]) {
+						if (fecha1[1] < fecha2[1]) {
+							return - 1;
+						} else if (fecha1[1] == fecha2[1]) {
+							if (fecha1[0] < fecha2[0]) {
+								return - 1;
+							}
+						}
+					}
+				}
+				case "Clave" -> {
+					if (o1.getValor().equals(o1.getValor().replaceAll("([A-Z_a-z]*)(\\d+)([A-Z_a-z]*)", "$2")) && o2.getValor().equals(o2.getValor().replaceAll("([A-Z_a-z]*)(\\d+)([A-Z_a-z]*)", "$2"))) {
+						return compare(Integer.parseInt(o1.getValor()), Integer.parseInt(o2.getValor()));
+					}
+					String[] o1Array = o1.getValor().split("(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)");
+					String[] o2Array = o2.getValor().split("(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)");
+					ArrayList<String> o1List = new ArrayList<>(Arrays.asList(o1Array));
+					ArrayList<String> o2List = new ArrayList<>(Arrays.asList(o2Array));
+					for (int i = 0; i < 3; i++) {
+						if (o1List.size() < 3) {
+							o1List.add("");
+						}
+						if (o2List.size() < 3) {
+							o2List.add("");
+						}
+					}
+					if ((! o1List.get(0).isEmpty() || ! o2List.get(0).isEmpty()) && ! o1List.get(0).equals(o2List.get(0))) {
+						try {
+							int num1 = Integer.parseInt(o1List.get(0));
+							int num2 = Integer.parseInt(o2List.get(0));
+							return compare(num1, num2);
+						} catch (NumberFormatException e) {
+							return o1List.get(0).compareTo(o2List.get(0));
+						}
+					} else if (((! o1List.get(1).isEmpty() || ! o2List.get(1).isEmpty()) && ! o1List.get(1).equals(o2List.get(1)))) {
+						try {
+							int num1 = Integer.parseInt(o1List.get(1));
+							int num2 = Integer.parseInt(o2List.get(1));
+							return compare(num1, num2);
+						} catch (NumberFormatException e) {
+							return o1List.get(1).compareTo(o2List.get(1));
+						}
+					} else {
+						try {
+							int num1 = Integer.parseInt(o1List.get(2));
+							int num2 = Integer.parseInt(o2List.get(2));
+							return compare(num1, num2);
+						} catch (NumberFormatException e) {
+							return o1List.get(2).compareTo(o2List.get(2));
+						}
+					}
+				}
+			}
+
+		} catch (NumberFormatException ignored) {
+		}
+		return 1;
+	};
+	static final Comparator<Dato> datoCompareInv = (o1, o2) -> datoCompare.compare(o2, o1);
 	private String valor;
 	private int id;
 	private String tipo;
 	private int ordenCambio;
-	static final String[] tipos = {"null", "Texto", "Entero", "Flotante", "Caracter", "Fecha", "Hora", "Bool", "Clave"};
 
 	public Dato(String valor, int id, int tipo) {
 		this.valor = valor;
@@ -22,6 +115,7 @@ public class Dato extends TableColumn implements Serializable {
 		this.tipo = (tipo < tipos.length && tipo >= 0) ? tipos[tipo] : "null";
 		this.ordenCambio = 0;
 	}
+
 	public Dato(String valor, int id, String tipoS) {
 		this.valor = valor;
 		this.id = id;
@@ -78,28 +172,28 @@ public class Dato extends TableColumn implements Serializable {
 		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getTipo() {
 		return tipo;
-	}
-
-	public String getValor() {
-		return valor;
-	}
-
-	public int getOrdenCambio() {
-		return ordenCambio;
 	}
 
 	public void setTipo(int tipo) {
 		this.tipo = tipos[tipo];
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public String getValor() {
+		return valor;
 	}
 
 	public void setValor(String valor) {
 		this.valor = valor;
+	}
+
+	public int getOrdenCambio() {
+		return ordenCambio;
 	}
 
 	public void setOrdenCambio(int increment) {
@@ -158,7 +252,7 @@ public class Dato extends TableColumn implements Serializable {
 					break;
 			}
 		}
-		if (!pass) {
+		if (! pass) {
 			if (callFeedback == 1 || callFeedback == 2) {
 				System.out.println("El dato " + this.getValor() + " no es valido [" + this.getTipo() + "]" + (changeTipo ? "- El dato se ha restablecido a vacío" : ""));
 			}
@@ -177,7 +271,7 @@ public class Dato extends TableColumn implements Serializable {
 			tipo = 1;
 		} else if (this.getValor().matches("[a-zA-Z]*\\d+") || this.getValor().matches("\\d+[a-zA-Z]*")) {
 			tipo = 8;
-		}else if (this.getValor().equalsIgnoreCase("true") || this.getValor().equalsIgnoreCase("false") || this.getValor().equalsIgnoreCase("verdadero") || this.getValor().equalsIgnoreCase("falso")) {
+		} else if (this.getValor().equalsIgnoreCase("true") || this.getValor().equalsIgnoreCase("false") || this.getValor().equalsIgnoreCase("verdadero") || this.getValor().equalsIgnoreCase("falso")) {
 			tipo = 7;
 		} else if (this.getValor().matches("\\d{2}:\\d{2}") && Integer.parseInt(this.getValor().substring(0, 2)) <= 23 && Integer.parseInt(this.getValor().substring(3, 5)) <= 59 && Integer.parseInt(this.getValor().substring(0, 2)) >= 0 && Integer.parseInt(this.getValor().substring(3, 5)) >= 0) {
 			tipo = 6;
@@ -257,7 +351,7 @@ public class Dato extends TableColumn implements Serializable {
 						} else if (parts[2].length() > 4) {
 							parts[2] = Arrays.stream(parts[2].split("")).limit(4).collect(Collectors.joining());
 						}
-						if (Integer.parseInt(parts[2]) % 4 == 0 ? Integer.parseInt(parts[0]) > Utilidades.diasMes[Integer.parseInt(parts[1]) - 1] +1 : Integer.parseInt(parts[0]) > Utilidades.diasMes[Integer.parseInt(parts[1]) - 1]) {
+						if (Integer.parseInt(parts[2]) % 4 == 0 ? Integer.parseInt(parts[0]) > Utilidades.diasMes[Integer.parseInt(parts[1]) - 1] + 1 : Integer.parseInt(parts[0]) > Utilidades.diasMes[Integer.parseInt(parts[1]) - 1]) {
 							parts[0] = "01";
 						}
 						this.setValor(String.join("/", parts));
@@ -284,100 +378,5 @@ public class Dato extends TableColumn implements Serializable {
 		s = s + "]";
 		return s;
 	}
-
-	 static final Comparator<Dato> datoCompare = (o1, o2) -> {
-		try {
-			if (! o1.getTipo().equals(o2.getTipo())) {
-				return 1;
-			}
-			String tipo = o1.getTipo();
-			switch (tipo) {
-				case "Texto", "Bool", "Caracter", "null" -> {
-					String[] valores = new String[]{o1.getValor(), o2.getValor()};
-					Arrays.sort(valores);
-					if (! valores[0].equals(valores[1]) && valores[1].equals(o2.getValor())) {
-						return - 1;
-					}
-				}
-				case "Entero", "Flotante" -> {
-					String[] valores = new String[]{o1.getValor(), o2.getValor()};
-					return (int) (Float.parseFloat(valores[0]) - Float.parseFloat(valores[1]));
-				}
-				case "Hora" -> {
-					int[] hora1 = Arrays.stream(o1.getValor().split(":")).mapToInt(Integer::parseInt).toArray();
-					int[] hora2 = Arrays.stream(o2.getValor().split(":")).mapToInt(Integer::parseInt).toArray();
-					if (hora1[0] < hora2[0]) {
-						return - 1;
-					} else if (hora1[0] == hora2[0]) {
-						if (hora1[1] < hora2[1]) {
-							return - 1;
-						}
-					}
-				}
-				case "Fecha" -> {
-					int[] fecha1 = Arrays.stream(o1.getValor().split("/")).mapToInt(Integer::parseInt).toArray();
-					int[] fecha2 = Arrays.stream(o2.getValor().split("/")).mapToInt(Integer::parseInt).toArray();
-					if (fecha1[2] < fecha2[2]) {
-						return - 1;
-					} else if (fecha1[2] == fecha2[2]) {
-						if (fecha1[1] < fecha2[1]) {
-							return - 1;
-						} else if (fecha1[1] == fecha2[1]) {
-							if (fecha1[0] < fecha2[0]) {
-								return - 1;
-							}
-						}
-					}
-				}
-				case "Clave" -> {
-					if (o1.getValor().equals(o1.getValor().replaceAll("([A-Z_a-z]*)(\\d+)([A-Z_a-z]*)", "$2")) && o2.getValor().equals(o2.getValor().replaceAll("([A-Z_a-z]*)(\\d+)([A-Z_a-z]*)", "$2"))) {
-						return compare(Integer.parseInt(o1.getValor()), Integer.parseInt(o2.getValor()));
-					}
-					String[] o1Array = o1.getValor().split("(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)");
-					String[] o2Array = o2.getValor().split("(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)");
-					ArrayList<String> o1List = new ArrayList<>(Arrays.asList(o1Array));
-					ArrayList<String> o2List = new ArrayList<>(Arrays.asList(o2Array));
-					for (int i = 0; i < 3; i++) {
-						if (o1List.size() < 3) {
-							o1List.add("");
-						}
-						if (o2List.size() < 3) {
-							o2List.add("");
-						}
-					}
-					if ((!o1List.get(0).isEmpty() || !o2List.get(0).isEmpty()) && !o1List.get(0).equals(o2List.get(0))) {
-						try {
-							int num1 = Integer.parseInt(o1List.get(0));
-							int num2 = Integer.parseInt(o2List.get(0));
-							return compare(num1, num2);
-						} catch (NumberFormatException e) {
-							return o1List.get(0).compareTo(o2List.get(0));
-						}
-					} else if (((!o1List.get(1).isEmpty() || !o2List.get(1).isEmpty()) && !o1List.get(1).equals(o2List.get(1)))) {
-						try {
-							int num1 = Integer.parseInt(o1List.get(1));
-							int num2 = Integer.parseInt(o2List.get(1));
-							return compare(num1, num2);
-						} catch (NumberFormatException e) {
-							return o1List.get(1).compareTo(o2List.get(1));
-						}
-					} else {
-						try {
-							int num1 = Integer.parseInt(o1List.get(2));
-							int num2 = Integer.parseInt(o2List.get(2));
-							return compare(num1, num2);
-						} catch (NumberFormatException e) {
-							return o1List.get(2).compareTo(o2List.get(2));
-						}
-					}
-				}
-			}
-
-		} catch (NumberFormatException ignored) {
-		}
-		return 1;
-	};
-
-	static final Comparator<Dato> datoCompareInv  = (o1, o2) -> datoCompare.compare(o2, o1);
 
 }

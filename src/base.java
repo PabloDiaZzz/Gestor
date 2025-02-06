@@ -12,21 +12,28 @@ public class base {
 		for (int i = 0; i < columns.length; i++) {
 			columns[i] = list.getFirst().get(i).getValor();
 		}
-		String[][] data = new String[list.size()-1][columns.length];
+		String[][] data = new String[list.size() - 1][columns.length];
 		for (int i = 1; i < list.size(); i++) {
 			for (int j = 0; j < columns.length; j++) {
-				data[i-1][j] = list.get(i).get(j).getValor();
+				data[i - 1][j] = list.get(i).get(j).getValor();
 			}
 		}
 		TableModel model = new DefaultTableModel(data, columns);
 		final JTable[] tabla = {new JTable(model)};
 
 		tabla[0].getColumnModel().addColumnModelListener(new TableColumnModelListener() {
-			@Override public void columnAdded(TableColumnModelEvent e) {}
-			@Override public void columnRemoved(TableColumnModelEvent e) {}
-
 			private boolean isResettingColumn = false;
-			@Override public void columnMoved(TableColumnModelEvent e) {
+
+			@Override
+			public void columnAdded(TableColumnModelEvent e) {
+			}
+
+			@Override
+			public void columnRemoved(TableColumnModelEvent e) {
+			}
+
+			@Override
+			public void columnMoved(TableColumnModelEvent e) {
 				if (isResettingColumn) {
 					return;
 				}
@@ -79,8 +86,14 @@ public class base {
 				OcultarCampos.listaCheckBoxPanel.repaint();
 				OcultarCampos.listaCheckBoxPanel.revalidate();
 			}
-			@Override public void columnMarginChanged(ChangeEvent e) {}
-			@Override public void columnSelectionChanged(ListSelectionEvent e) {}
+
+			@Override
+			public void columnMarginChanged(ChangeEvent e) {
+			}
+
+			@Override
+			public void columnSelectionChanged(ListSelectionEvent e) {
+			}
 		});
 		tabla[0].getModel().addTableModelListener(e -> {
 
@@ -88,18 +101,18 @@ public class base {
 				TableModel modelo = (TableModel) e.getSource();
 				int row = e.getFirstRow();
 				int col = e.getColumn();
-				Dato antiguoDato = new Dato(list.get(row+1).get(col).getValor(), row+1, list.getFirst().get(col).getTipo());
+				Dato antiguoDato = new Dato(list.get(row + 1).get(col).getValor(), row + 1, list.getFirst().get(col).getTipo());
 				Object value = modelo.getValueAt(row, col);
-				list.get(row+1).get(col).setValor(value.toString());
-				if (!list.get(row+1).get(col).checkTipo(0, false)) {
+				list.get(row + 1).get(col).setValor(value.toString());
+				if (! list.get(row + 1).get(col).checkTipo(0, false)) {
 					JOptionPane.showMessageDialog(frame, "El dato no es valido, se intentara revertir el cambio");
-					list.get(row+1).set(col, antiguoDato);
-					list.get(row+1).get(col).checkTipo(1, true);
+					list.get(row + 1).set(col, antiguoDato);
+					list.get(row + 1).get(col).checkTipo(1, true);
 				} else {
-					list.get(row+1).get(col).checkTipo(2, true);
+					list.get(row + 1).get(col).checkTipo(2, true);
 				}
-				if (!list.get(row+1).get(col).getValor().equals(tabla[0].getValueAt(row, col))) {
-					SwingUtilities.invokeLater(() -> tabla[0].setValueAt(list.get(row+1).get(col).getValor(), row, col));
+				if (! list.get(row + 1).get(col).getValor().equals(tabla[0].getValueAt(row, col))) {
+					SwingUtilities.invokeLater(() -> tabla[0].setValueAt(list.get(row + 1).get(col).getValor(), row, col));
 					Gestor2GUI.refreshTable(Gestor2GUI.panel2.getSelectedIndex(), true, Gestor2GUI.getColumnWidths(tabla[0]), false);
 				}
 			}
@@ -108,12 +121,14 @@ public class base {
 		tabla[0].addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) showPopup(e);
+				if (e.isPopupTrigger())
+					showPopup(e);
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) showPopup(e);
+				if (e.isPopupTrigger())
+					showPopup(e);
 			}
 
 			private void showPopup(MouseEvent e) {
@@ -162,12 +177,14 @@ public class base {
 		tabla[0].getTableHeader().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) showPopup(e);
+				if (e.isPopupTrigger())
+					showPopup(e);
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) showPopup(e);
+				if (e.isPopupTrigger())
+					showPopup(e);
 			}
 
 			private void showPopup(MouseEvent e) {
@@ -189,8 +206,8 @@ public class base {
 					deleteCampoItem.addActionListener(evt -> {
 						int[] colsReversed = Arrays.stream(finalCols).boxed().sorted(Comparator.reverseOrder()).mapToInt(Integer::intValue).toArray();
 						for (int c : colsReversed) {
-							anchos1[c] = -1;
-							anchos2[c] = -1;
+							anchos1[c] = - 1;
+							anchos2[c] = - 1;
 							int columnCount = tabla[0].getModel().getColumnCount();
 							DefaultTableModel newModel = new DefaultTableModel();
 							for (int i = 0; i < columnCount; i++) {
@@ -214,8 +231,8 @@ public class base {
 								d.remove(col);
 							}
 						}
-						Gestor2GUI.value.set(1, Arrays.stream(anchos1).filter(a -> a != -1).toArray());
-						Gestor2GUI.value.set(2, Arrays.stream(anchos2).filter(a -> a != -1).toArray());
+						Gestor2GUI.value.set(1, Arrays.stream(anchos1).filter(a -> a != - 1).toArray());
+						Gestor2GUI.value.set(2, Arrays.stream(anchos2).filter(a -> a != - 1).toArray());
 						Gestor2GUI.listas.put(Gestor2GUI.panel2.getSelectedIndex(), Gestor2GUI.value);
 						Gestor2GUI.refreshTable(Gestor2GUI.panel2.getSelectedIndex(), true, Gestor2GUI.getColumnWidths(tabla[0]), false);
 					});
@@ -280,7 +297,7 @@ public class base {
 				if (list.getFirst().get(x).getValor().matches(".*▽")) {
 					list.getFirst().get(x).setValor(list.getFirst().get(x).getValor().replace("▽", ""));
 					list.getFirst().get(Gestor2.sortBy).setValor(list.getFirst().get(x).getValor() + "▽");
-					Gestor2.ordenar(list, Gestor2.sortBy,1);
+					Gestor2.ordenar(list, Gestor2.sortBy, 1);
 				} else {
 					list.getFirst().get(Gestor2.sortBy).setValor(list.getFirst().get(Gestor2.sortBy).getValor() + "△");
 					Gestor2.ordenar(list, Gestor2.sortBy);
@@ -289,8 +306,8 @@ public class base {
 				break;
 			}
 		}
-		if (!changed) {
-			if (!list.getFirst().isEmpty()) {
+		if (! changed) {
+			if (! list.getFirst().isEmpty()) {
 				list.getFirst().get(Gestor2.sortBy).setValor(list.getFirst().get(Gestor2.sortBy).getValor() + "△");
 			}
 			Gestor2.ordenar(list, Gestor2.sortBy);
@@ -309,7 +326,7 @@ public class base {
 			} else if (x == Gestor2.sortBy) {
 				list.getFirst().get(x).setValor(list.getFirst().get(x).getValor().replace("▽", ""));
 				list.getFirst().get(Gestor2.sortBy).setValor(list.getFirst().get(Gestor2.sortBy).getValor() + "△");
-				Gestor2.ordenar(list, Gestor2.sortBy,0);
+				Gestor2.ordenar(list, Gestor2.sortBy, 0);
 				changed = true;
 			} else {
 				list.getFirst().get(x).setValor(list.getFirst().get(x).getValor().replace("△", ""));
@@ -318,9 +335,9 @@ public class base {
 
 
 		}
-		if (!changed) {
+		if (! changed) {
 			list.getFirst().get(Gestor2.sortBy).setValor(list.getFirst().get(Gestor2.sortBy).getValor() + "△");
-			Gestor2.ordenar(list, Gestor2.sortBy,0);
+			Gestor2.ordenar(list, Gestor2.sortBy, 0);
 		}
 
 		return list;

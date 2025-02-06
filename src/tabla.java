@@ -19,10 +19,10 @@ public class tabla extends JPanel {
 		for (int i = 0; i < columns.length; i++) {
 			columns[i] = list.getFirst().get(i).getValor();
 		}
-		String[][] data = new String[list.size()-1][columns.length];
+		String[][] data = new String[list.size() - 1][columns.length];
 		for (int i = 1; i < list.size(); i++) {
 			for (int j = 0; j < columns.length; j++) {
-				data[i-1][j] = list.get(i).get(j).getValor();
+				data[i - 1][j] = list.get(i).get(j).getValor();
 			}
 		}
 		TableModel model = new DefaultTableModel(data, columns);

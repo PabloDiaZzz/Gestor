@@ -14,6 +14,10 @@ public class BotonRedondeado extends JButton {
 		setBorder(BorderFactory.createEmptyBorder());
 	}
 
+	public static JButton crearBotonRedondeado(String texto, int radio, int diametro) {
+		return new BotonRedondeado(texto, radio, diametro);
+	}
+
 	@Override
 	protected void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g.create();
@@ -36,12 +40,8 @@ public class BotonRedondeado extends JButton {
 	protected void paintBorder(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g.create();
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		g2.setColor(new Color(0,0,0,0));
+		g2.setColor(new Color(0, 0, 0, 0));
 		g2.drawRoundRect(0, 0, diametro - 1, diametro - 1, radio, radio);
 		g2.dispose();
-	}
-
-	public static JButton crearBotonRedondeado(String texto, int radio, int diametro) {
-		return new BotonRedondeado(texto, radio, diametro);
 	}
 }

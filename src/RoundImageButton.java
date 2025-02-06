@@ -7,9 +7,9 @@ import java.awt.event.MouseEvent;
 public class RoundImageButton extends JButton {
 
 	private final int radius;
+	private final int borderHeight;
 	private boolean isMouseOver = false;
 	private boolean isMouseDown = false;
-	private final int borderHeight;
 
 	public RoundImageButton(ImageIcon icon, int radius, int borderHeight) {
 		super(icon);
@@ -47,6 +47,23 @@ public class RoundImageButton extends JButton {
 		});
 	}
 
+	@Override
+	protected void paintComponent(Graphics g) {
+		Graphics2D g2d = (Graphics2D) g;
+		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+		if (isMouseDown) {
+			g2d.setColor(new Color(180, 180, 180)); // pressed color
+		} else if (isMouseOver) {
+			g2d.setColor(new Color(186, 232, 227)); // hover color
+		} else {
+			g2d.setColor(getBackground());
+		}
+
+		g2d.fillRoundRect(0, 0, getWidth() - 1, getHeight() - 1, radius, radius);
+		super.paintComponent(g);
+	}
+
 	public static class RoundBorder extends AbstractBorder {
 		private final int radius;
 		private final int borderHeight;
@@ -68,22 +85,5 @@ public class RoundImageButton extends JButton {
 		public Insets getBorderInsets(Component c) {
 			return new Insets(borderHeight, radius, borderHeight, radius);
 		}
-	}
-
-	@Override
-	protected void paintComponent(Graphics g) {
-		Graphics2D g2d = (Graphics2D) g;
-		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
-		if (isMouseDown) {
-			g2d.setColor(new Color(180, 180, 180)); // pressed color
-		} else if (isMouseOver) {
-			g2d.setColor(new Color(186, 232, 227)); // hover color
-		} else {
-			g2d.setColor(getBackground());
-		}
-
-		g2d.fillRoundRect(0, 0, getWidth() - 1, getHeight() - 1, radius, radius);
-		super.paintComponent(g);
 	}
 }

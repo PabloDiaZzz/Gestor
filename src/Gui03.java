@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+
 public class Gui03 extends JFrame {
 
 	public Gui03() {
@@ -18,7 +19,7 @@ public class Gui03 extends JFrame {
 		cancelar.setPreferredSize(new Dimension(50, 50));
 		panel.add(cancelar, BorderLayout.SOUTH);
 		add(panel, BorderLayout.WEST);
-		setSize(500,600); //pack();
+		setSize(500, 600); //pack();
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}

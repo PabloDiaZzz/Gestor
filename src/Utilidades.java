@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class Utilidades {
 	static int[] diasMes = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-	public static void menu(boolean input,String[] a) {
+
+	public static void menu(boolean input, String[] a) {
 		int maxValue = 0;
 		for (int i = 0; i < a.length; i++) {
 			maxValue = Math.max(maxValue, String.valueOf(a.length).length() - String.valueOf(i).length() + ((input ? i + ". " : "") + a[i]).length());
@@ -101,20 +102,20 @@ public class Utilidades {
 		sc.nextLine();
 		if (tipo < 1 || tipo > Dato.tipos.length) {
 			System.out.println("Tipo de dato no válido");
-			return -1;
+			return - 1;
 		}
 		return tipo;
 	}
 
-	public static int campo(ArrayList<ArrayList<Dato>> l,boolean callCampos) {
-		return campo(l, callCampos, 0, l.getFirst().size()-1);
+	public static int campo(ArrayList<ArrayList<Dato>> l, boolean callCampos) {
+		return campo(l, callCampos, 0, l.getFirst().size() - 1);
 	}
 
-	public static int campo(ArrayList<ArrayList<Dato>> l,boolean callCampos , int extremo1) {
-		return campo(l, callCampos, extremo1, l.getFirst().size()-1);
+	public static int campo(ArrayList<ArrayList<Dato>> l, boolean callCampos, int extremo1) {
+		return campo(l, callCampos, extremo1, l.getFirst().size() - 1);
 	}
 
-	public static int campo(ArrayList<ArrayList<Dato>> l,boolean callCampos , int extremo1, int extremo2) {
+	public static int campo(ArrayList<ArrayList<Dato>> l, boolean callCampos, int extremo1, int extremo2) {
 		Scanner sc = new Scanner(System.in);
 		int campo;
 		int contador = 1;
@@ -134,7 +135,7 @@ public class Utilidades {
 		sc.nextLine();
 		if (campo < 1 || campo >= contador) {
 			System.out.println("Campo no válido");
-			return -1;
+			return - 1;
 		}
 		return campo + extremo1 - 1;
 	}
