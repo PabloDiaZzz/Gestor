@@ -203,7 +203,7 @@ public class Gestor2GUI {
 		panel2.setMinimumSize(new Dimension(500, 0));
 		switchPanel(panel2);
 
-		JButton distAncho = new JButton("<->");
+		JButton distAncho = new JButton("<‒>");
 		distAncho.setVisible(false);
 		//		distAncho.setPreferredSize(new Dimension(25,25));
 		distAncho.addActionListener(e -> {

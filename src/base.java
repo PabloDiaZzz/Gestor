@@ -256,11 +256,11 @@ public class base {
 						Gestor2GUI.refreshTable(Gestor2GUI.panel2.getSelectedIndex());
 					});
 					if (cols.length == 1) {
-						popupMenu.add(deleteCampoItem);
 						popupMenu.add(ordenar);
 					}
 
 					if (cols[0] != 0) {
+						popupMenu.add(deleteCampoItem);
 						popupMenu.add(tipo);
 					}
 					popupMenu.show(tabla[0].getTableHeader(), e.getX(), e.getY());

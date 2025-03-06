@@ -23,8 +23,8 @@ public class Gestor2 {
 		Scanner sc = new Scanner(System.in);
 		list = cargarLista(defaultDir);
 		if (list == null) {
-			list = new ArrayList<ArrayList<Dato>>();
-			list.add(new ArrayList<Dato>(1));
+			list = new ArrayList<>();
+			list.add(new ArrayList<>(1));
 			System.out.print("Introduce un primer campo identificador (sus valores se asignarán automáticamente): ");
 			list.getFirst().add(new Dato(sc.nextLine(), "Clave"));
 		}
@@ -405,7 +405,9 @@ public class Gestor2 {
 				try {
 					Integer.parseInt(infoList.get(x + 1).getFirst().getValor());
 				} catch (NumberFormatException e) {
-					isText = true;
+					if (!infoList.get(x + 1).getFirst().getTipo().equals("Clave")) {
+						isText = true;
+					}
 				} catch (IndexOutOfBoundsException ignored) {
 				}
 				if (x == 0 || x == infoList.size() - 1 || isText) { // If para añadir barra separadora después de la fila de campos y al final
@@ -783,7 +785,8 @@ public class Gestor2 {
 							if (campo >= 0 && campo < tempL.getFirst().size()) {  // Verifica que el campo esté en el rango
 								System.out.print("Termino a buscar: ");
 								String buscar = sc.nextLine();
-								ArrayList<Integer> id = buscarEntVert(campo, buscar, tempL);
+								Dato datoTemp = new Dato(buscar, - 1, staticL.getFirst().get(campo).getTipo()).formatTipo();
+								ArrayList<Integer> id = buscarEntVert(campo, datoTemp.getValor(), tempL);
 								if (id.isEmpty()) {
 									System.out.println("No se ha encontrado la entidad.");
 								} else {
@@ -867,6 +870,10 @@ public class Gestor2 {
 						if (campo == campo2) {
 							System.out.println("Seleccione dos campos diferentes.");
 							break;
+						}
+						if (camposDupe.contains(campo) || camposDupe.contains(campo2)) {
+							int finalCampo = campo;
+							camposDupe = camposDupe.stream().mapToInt(v -> v == finalCampo ? campo2 : v == campo2 ? finalCampo : v).boxed().collect(Collectors.toCollection(ArrayList::new));
 						}
 						for (int x = 0; x < l.size(); x++) {
 							tempArray.add(l.get(x).get(campo));

@@ -9,19 +9,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d86414a-84cb-45f7-8e43-a9a58bde44b4" name="Changes" comment="Gestor version 06.02.25">
+    <list default="true" id="4d86414a-84cb-45f7-8e43-a9a58bde44b4" name="Changes" comment="Libreria">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jgoodies_forms.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestor.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gestor_de_Entidades_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Gestor_de_Entidades_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/alu04d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/alu04d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestor de Entidades.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Gestor de Entidades.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/default.dat" beforeDir="false" afterPath="$PROJECT_DIR$/default.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/default2.dat" beforeDir="false" afterPath="$PROJECT_DIR$/default2.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lista1.dat" beforeDir="false" afterPath="$PROJECT_DIR$/lista1.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qodana.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/src/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.project" beforeDir="false" afterPath="$PROJECT_DIR$/src/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.settings/org.eclipse.core.resources.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/src/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/src/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.settings/org.eclipse.jdt.launching.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/src/.settings/org.eclipse.jdt.launching.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dato.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gestor2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestor2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TabbedPaneWithCloseButton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestor2GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestor2GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pruebas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pruebas.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="CompilerWorkspaceConfiguration">
     <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
@@ -35,6 +61,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -63,7 +90,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Driver.executor": "Run",
-    "Application.Gestor2.executor": "Run",
+    "Application.Gestor2.executor": "Debug",
     "Application.Gestor2GUI.executor": "Run",
     "Application.Gui00.executor": "Run",
     "Application.Gui01.executor": "Run",
@@ -72,12 +99,14 @@
     "Application.Main.executor": "Run",
     "Application.OcultarCampos.executor": "Run",
     "Application.TabbedPaneWithCloseButton.executor": "Run",
+    "Application.gestor.Gestor2.executor": "Run",
     "Application.interfaz.executor": "Run",
     "Application.pruebas.executor": "Run",
     "Application.tabla.executor": "Run",
     "Application.ventana.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
     "Downloaded.Files.Path.Enabled": "false",
+    "JAR Application.Gestor de Entidades.jar.executor": "Run",
     "JUnit.Gestor2GUITest.executor": "Run",
     "JUnit.Gestor2GUITest.testIsSameListWithEmptyTable.executor": "Debug",
     "JavaClassFindUsagesOptions.isMethodsUsages": "true",
@@ -86,6 +115,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.codeium.enabled": "true",
     "com.codeium.snoozedEndTime": "0",
     "create.test.in.the.same.root": "true",
@@ -98,7 +128,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Global Libraries",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -107,7 +137,11 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alu04d\OneDrive - Consejería de Educación\Clase\Programacion\Gestor de Entidades" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alu04d\OneDrive - Consejería de Educación\Clase\Programacion\Gestor de Entidades\bin" />
       <recent name="C:\Users\Pablo\OneDrive - Consejería de Educación\Clase\Programacion\Gestor de Entidades\src" />
     </key>
   </component>
@@ -131,9 +165,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TabbedPaneWithCloseButton" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TabbedPaneWithCloseButton" />
+    <configuration name="Gestor2" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Gestor2" />
       <module name="Gestor de Entidades" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Gestor2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Gestor2" />
+      <module name="Gestor de Entidades" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -145,19 +192,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Gestor de Entidades.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/bin/Gestor de Entidades.jar" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Gestor2" />
+      <item itemvalue="Application.Gestor2GUI" />
+      <item itemvalue="Application.pruebas" />
+      <item itemvalue="JAR Application.Gestor de Entidades.jar" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TabbedPaneWithCloseButton" />
-        <item itemvalue="Application.pruebas" />
         <item itemvalue="Application.Gestor2GUI" />
+        <item itemvalue="Application.pruebas" />
+        <item itemvalue="JAR Application.Gestor de Entidades.jar" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
       </set>
     </attachedChunks>
   </component>
@@ -259,6 +317,19 @@
       <workItem from="1738226132872" duration="88000" />
       <workItem from="1738573034286" duration="229000" />
       <workItem from="1738830147577" duration="4949000" />
+      <workItem from="1739449927206" duration="107000" />
+      <workItem from="1739450140989" duration="52000" />
+      <workItem from="1739450435451" duration="12000" />
+      <workItem from="1739450551477" duration="461000" />
+      <workItem from="1739451306236" duration="6000" />
+      <workItem from="1739490733404" duration="2172000" />
+      <workItem from="1739537226596" duration="398000" />
+      <workItem from="1739537871942" duration="603000" />
+      <workItem from="1739835171678" duration="18000" />
+      <workItem from="1739841167031" duration="153000" />
+      <workItem from="1739882076820" duration="357000" />
+      <workItem from="1739884317287" duration="51000" />
+      <workItem from="1741251203737" duration="2095000" />
     </task>
     <task id="LOCAL-00001" summary="Gestor version 11.12.24 prueba">
       <option name="closed" value="true" />
@@ -300,7 +371,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738832378627</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Libreria">
+      <option name="closed" value="true" />
+      <created>1739538338618</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1739538338618</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +419,8 @@
     <MESSAGE value="Gestor version 13.01.25" />
     <MESSAGE value="Gestor version 17.01.25" />
     <MESSAGE value="Gestor version 06.02.25" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gestor version 06.02.25" />
+    <MESSAGE value="Libreria" />
+    <option name="LAST_COMMIT_MESSAGE" value="Libreria" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -351,7 +431,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Dato.java</url>
-          <line>289</line>
+          <line>380</line>
           <properties class="Dato">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -359,38 +439,18 @@
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Gestor2.java</url>
-          <line>1236</line>
-          <properties class="Gestor2" method="defDir">
+          <url>file://$PROJECT_DIR$/src/Dato.java</url>
+          <line>297</line>
+          <properties class="Dato" method="formatTipo">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Gestor2GUI.java</url>
-          <line>375</line>
-          <option name="timeStamp" value="47" />
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Gestor2.java</url>
-          <line>551</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Gestor2.java</url>
-          <line>529</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Gestor2.java</url>
-          <line>532</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Gestor2.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="55" />
+          <line>784</line>
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

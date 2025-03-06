@@ -10,6 +10,10 @@ import java.util.stream.Collectors;
 import static java.lang.Integer.compare;
 
 public class Dato extends TableColumn implements Serializable {
+	private String valor;
+	private int id;
+	private String tipo;
+	private int ordenCambio;
 	static final String[] tipos = {"null", "Texto", "Entero", "Flotante", "Caracter", "Fecha", "Hora", "Bool", "Clave"};
 	static final Comparator<Dato> datoCompare = (o1, o2) -> {
 		try {
@@ -104,10 +108,6 @@ public class Dato extends TableColumn implements Serializable {
 		return 1;
 	};
 	static final Comparator<Dato> datoCompareInv = (o1, o2) -> datoCompare.compare(o2, o1);
-	private String valor;
-	private int id;
-	private String tipo;
-	private int ordenCambio;
 
 	public Dato(String valor, int id, int tipo) {
 		this.valor = valor;
@@ -247,7 +247,7 @@ public class Dato extends TableColumn implements Serializable {
 					pass = this.getValor().equalsIgnoreCase("true") || this.getValor().equalsIgnoreCase("false") || this.getValor().equalsIgnoreCase("verdadero") || this.getValor().equalsIgnoreCase("falso");
 					break;
 				case "Clave":
-					pass = this.getValor().matches("[a-zA-Z]*\\d+") || this.getValor().matches("\\d+[a-zA-Z]*");
+					pass = this.getValor().matches("[a-zA-Z]*\\d+") || this.getValor().matches("\\d+[a-zA-Z]*") || this.getValor().matches("\\d+-\\d+");
 				default:
 					break;
 			}
@@ -269,7 +269,7 @@ public class Dato extends TableColumn implements Serializable {
 		int tipo;
 		if (this.getValor().isBlank()) {
 			tipo = 1;
-		} else if (this.getValor().matches("[a-zA-Z]*\\d+") || this.getValor().matches("\\d+[a-zA-Z]*")) {
+		} else if (this.getValor().matches("[a-zA-Z]*\\d+") || this.getValor().matches("\\d+[a-zA-Z]*") || this.getValor().matches("\\d+-\\d+")) {
 			tipo = 8;
 		} else if (this.getValor().equalsIgnoreCase("true") || this.getValor().equalsIgnoreCase("false") || this.getValor().equalsIgnoreCase("verdadero") || this.getValor().equalsIgnoreCase("falso")) {
 			tipo = 7;
